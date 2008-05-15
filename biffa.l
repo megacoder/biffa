@@ -8,7 +8,15 @@ BW [ 	]
 EW [ 	.,;!?]
 
 %{
-	char buf[128];
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <getopt.h>
+
+static	int		sargc;
+static	char * *	sargv;
+static	char		buf[128];
+static	char *		me;
 
 %}
 
@@ -259,7 +267,46 @@ ou			printf("er");
 .			printf(yytext);
 \n			printf("\n");
 %%
-main()
+int
+yywrap(
+	void
+)
 {
-	yylex();
+	int		retval;
+
+	retval = 1;
+	if( optind < sargc )	{
+		optarg = sargv[ optind++ ];
+		if( freopen( optarg, "rt", stdin ) == stdin )	{
+			retval = 0;
+		} else	{
+			fprintf(
+				stderr,
+				"%s: cannot read '%s'\n",
+				me,
+				optarg
+			);
+		}
+	}
+	return( retval );
+}
+
+main(
+	int		argc,
+	char * *	argv
+)
+{
+
+	do	{
+		me = argv[ 0 ];
+		sargc = argc;
+		sargv = argv;
+		if( optind < sargc )	{
+			if( yywrap() )	{
+				exit( 1 );
+			}
+		}
+		yylex();
+	} while( 0 );
+	return( 0 );
 }
