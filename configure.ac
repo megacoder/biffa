@@ -9,6 +9,7 @@ AC_CONFIG_SRCDIR([biffa.l])
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LEX
+AM_INIT_AUTOMAKE
 
 # Checks for libraries.
 # FIXME: Replace `main' with a function in `-ll':
