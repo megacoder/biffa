@@ -7,7 +7,7 @@ export LDFLAGS
 # autopoint  --force
 aclocal
 # autoheader
-automake -facv
+automake -fac
 autoconf
 
 if [ "$1" != "--noconfigure" ]; then
