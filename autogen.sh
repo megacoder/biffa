@@ -3,14 +3,14 @@
 export CFLAGS
 export LDFLAGS
 
-libtoolize --force
-autopoint  --force
+# libtoolize --force
+# autopoint  --force
 aclocal
-autoheader
-automake -a
+# autoheader
+automake -facv
 autoconf
 
-if [ "$1" != "--noconfigure" ]; then 
+if [ "$1" != "--noconfigure" ]; then
 	exec ./configure "$@"
 fi
 exit
