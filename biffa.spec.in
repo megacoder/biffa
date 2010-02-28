@@ -1,25 +1,23 @@
 %define	ver	@VERSION@
-%define	rel	2
+%define	rel	1
 %define	prefix	/usr
 
 Prefix:	%{prefix}
 
-Summary: Tool to remap keyboard characters
-Name: remap
+Summary: Text filter
+Name: biffa
 Version: %{ver}
 Release: %{rel}
 License: GPLv2
 Group: User Interface/Desktops
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-BuildRequires: autoconf,automake
-Requires: xorg-x11-server-utils
-BuildArch: noarch
+BuildRequires: autoconf,automake,flex
+# %Requires:
+# %BuildArch: noarch
 
 %description
-Having learned to type on a real keyboard, I am frustrated no end
-that PC keyboards have CAPSLOCK and CTRL switched.  Using "remap"
-fixes this problem.
+Text filter of Biff
 %prep
 %setup -q
 
@@ -35,7 +33,7 @@ fixes this problem.
 %clean
 	rm -rf %{buildroot}
 
-%files 
+%files
 %defattr(-, root, root)
 %doc AUTHORS
 %doc COPYING
@@ -43,6 +41,6 @@ fixes this problem.
 %doc INSTALL
 %doc NEWS
 %doc README
-%{prefix}/bin/remap
+%{prefix}/bin/biffa
 
 %changelog
