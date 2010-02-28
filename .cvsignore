@@ -1,3 +1,13 @@
-*.swp
-.nfs*
+autom4te.cache
 biffa
+config.log
+config.status
+configure
+depcomp
+.deps
+install-sh
+Makefile
+Makefile.in
+missing
+.nfs*
+*.swp
