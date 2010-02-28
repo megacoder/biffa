@@ -21,6 +21,7 @@ all::	biffa
 
 clean::
 	${RM} *.o core.* lint tags a.out
+	${RM} biffa.c
 
 distclean clobber:: clean
 	${RM} biffa
