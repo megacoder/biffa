@@ -6,7 +6,7 @@ BINDIR	=${PREFIX}/bin
 
 #Put in your favourite lex or C compiler here
 LEX = lex
-CC 	=ccache gcc -m32
+CC 	=ccache gcc -march=native --std=gnu99
 CFLAGS	=-Os
 
 LDFLAGS	=
