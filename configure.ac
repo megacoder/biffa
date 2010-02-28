@@ -25,5 +25,6 @@ AC_CHECK_HEADERS([stdlib.h unistd.h])
 
 AC_CONFIG_FILES([
 	Makefile
+	biffa.spec
 ])
 AC_OUTPUT

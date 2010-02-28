@@ -12,3 +12,5 @@ Makefile.in
 missing
 .nfs*
 *.swp
+ylwrap
+biffa.c
